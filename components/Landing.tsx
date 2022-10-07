@@ -14,10 +14,7 @@ export default function Landing({}: LandingProps) {
   });
 
   return (
-    <section
-      id="landing"
-      className="h-screen snap-center flex flex-col items-center justify-center text-center overflow-hidden space-y-8"
-    >
+    <div className="h-screen flex flex-col items-center justify-center text-center overflow-hidden space-y-8">
       <BackgroundCircles />
       <Image
         className="relative rounded-full h-32 w-32 object-cover"
@@ -48,6 +45,6 @@ export default function Landing({}: LandingProps) {
           </Link>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

@@ -16,7 +16,9 @@ const Home: NextPage = () => {
       <Header />
 
       <main>
-        <Landing />
+        <section id="landing" className="snap-center">
+          <Landing />
+        </section>
       </main>
 
       <footer></footer>
