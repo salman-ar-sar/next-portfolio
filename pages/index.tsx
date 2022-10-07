@@ -3,6 +3,7 @@ import type { NextPage } from "next";
 
 import Header from "../components/Header";
 import Landing from "../components/Landing";
+import About from "../components/About";
 
 const Home: NextPage = () => {
   return (
@@ -18,6 +19,9 @@ const Home: NextPage = () => {
       <main>
         <section id="landing" className="snap-center">
           <Landing />
+        </section>
+        <section id="about" className="snap-center">
+          <About />
         </section>
       </main>
 
