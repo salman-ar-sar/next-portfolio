@@ -1,5 +1,6 @@
 import { FaPhoneAlt, FaMapMarkedAlt, FaEnvelopeOpenText } from "react-icons/fa";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { motion } from "framer-motion";
 
 type FormData = {
   name: string;
@@ -22,7 +23,13 @@ export default function ContactMe() {
   };
 
   return (
-    <div className="h-screen flex relative flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center">
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1.5 }}
+      viewport={{ once: true }}
+      className="h-screen flex relative flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center"
+    >
       <h3 className="absolute top-24 uppercase tracking-[1rem] text-gray-500 text-2xl">
         Contact
       </h3>
@@ -92,6 +99,6 @@ export default function ContactMe() {
           </button>
         </form>
       </div>
-    </div>
+    </motion.div>
   );
 }
