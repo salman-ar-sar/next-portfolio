@@ -6,7 +6,7 @@ type ExperienceCardProps = { imageSrc: StaticImageData };
 
 export default function ExperienceCard({ imageSrc }: ExperienceCardProps) {
   return (
-    <article className="flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[32rem] md:w-[38rem] xl:w-[56rem] snap-center bg-[#073434] opacity-40 hover:opacity-100 transition-opacity duration-200 overflow-hidden">
+    <article className="flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[32rem] md:w-[38rem] xl:w-[56rem] snap-center bg-background-lite opacity-40 hover:opacity-100 transition-opacity duration-200 overflow-hidden">
       <motion.div
         initial={{ y: -100, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
