@@ -12,7 +12,7 @@ type HeaderProps = {};
 
 export default function Header({}: HeaderProps) {
   return (
-    <header className="sticky top-4 flex justify-between max-w-7xl mx-auto z-20">
+    <header className="sticky top-4 flex justify-between max-w-7xl mx-auto z-20 px-8">
       <motion.div
         className="flex flex-row items-center gap-8"
         initial={{ x: -500, opacity: 0, scale: 0.5 }}
