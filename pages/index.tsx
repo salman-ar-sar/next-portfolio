@@ -1,4 +1,6 @@
 import Head from "next/head";
+import Link from "next/link";
+import { HiArrowCircleUp } from "react-icons/hi";
 import type { NextPage } from "next";
 
 import Header from "../components/Header";
@@ -44,7 +46,11 @@ const Home: NextPage = () => {
         </section>
       </main>
 
-      <footer></footer>
+      <footer className="sticky bottom-5 w-full flex justify-center">
+        <Link href="#landing">
+          <HiArrowCircleUp className="h-10 w-10 rounded-full text-gray-400 hover:text-cyan-400 cursor-pointer" />
+        </Link>
+      </footer>
     </div>
   );
 };
