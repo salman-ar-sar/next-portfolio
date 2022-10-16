@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import Landing from "../components/Landing";
 import About from "../components/About";
 import Experience from "../components/Experience";
+import Skills from "../components/Skills";
 
 const Home: NextPage = () => {
   return (
@@ -26,6 +27,9 @@ const Home: NextPage = () => {
         </section>
         <section id="experience" className="snap-center">
           <Experience />
+        </section>
+        <section id="skills" className="snap-start">
+          <Skills />
         </section>
       </main>
 
