@@ -1,10 +1,16 @@
 import { motion } from "framer-motion";
+import Image from "next/future/image";
+import { urlFor } from "../lib/sanity";
+import type { Technology } from "../shared/types";
 
 type SkillProps = {
+  tech: Technology;
   moveLeft?: boolean;
 };
 
-export default function Skill({ moveLeft }: SkillProps) {
+export default function Skill({ tech, moveLeft }: SkillProps) {
+  const { image, title = "" } = tech;
+
   return (
     <div className="group flex cursor-pointer">
       <motion.div
@@ -13,15 +19,21 @@ export default function Skill({ moveLeft }: SkillProps) {
         transition={{ duration: 1 }}
         className="relative"
       >
-        <img
+        <div
           className="w-16 h-16 md:w-20 md:h-20 xl:w-24
-          xl:h-24 rounded-full border border-gray-500 object-cover group-hover:grayscale transition duration-300 ease-out"
-          src="https://cdn1.iconfinder.com/data/icons/soleicons-fill-vol-1/64/reactjs_javascript_library_atom_atomic_react-512.png"
-          alt="RN"
-        />
-        <div className="absolute top-0 opacity-0 hover:opacity-80 transition duration-200 ease-in-out flex items-center justify-center h-full w-full rounded-full group-hover:bg-white">
+            xl:h-24 rounded-full border border-gray-500 object-cover group-hover:grayscale transition duration-300 ease-out"
+        >
+          <Image
+            className="p-4 object-contain"
+            alt={title}
+            src={urlFor(image).url()}
+            sizes="6rem"
+            fill
+          />
+        </div>
+        <div className="absolute top-0 opacity-0 hover:opacity-80 transition duration-200 ease-in-out flex items-center justify-center h-full w-full p-2 break-all rounded-full group-hover:bg-white">
           <p className="text-2xl text-center font-semibold text-black opacity-100">
-            React Native
+            {title}
           </p>
         </div>
       </motion.div>

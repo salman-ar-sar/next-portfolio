@@ -1,9 +1,12 @@
 import { motion } from "framer-motion";
+import { Technology } from "../shared/types";
 import Skill from "./Skill";
 
-type Props = {};
+type SkillsProps = {
+  technologies: Technology[];
+};
 
-export default function Skills({}: Props) {
+export default function Skills({ technologies }: SkillsProps) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -16,22 +19,17 @@ export default function Skills({}: Props) {
       </h3>
 
       <div className="grid grid-cols-4 gap-5">
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill moveLeft />
-        <Skill moveLeft />
-        <Skill moveLeft />
-        <Skill moveLeft />
-        <Skill moveLeft />
-        <Skill moveLeft />
-        <Skill moveLeft />
-        <Skill moveLeft />
+        {technologies.map((tech, index) => {
+          const halfLength = technologies.length / 2;
+
+          return (
+            <Skill
+              key={tech._id}
+              tech={tech}
+              moveLeft={index < halfLength ? false : true}
+            />
+          );
+        })}
       </div>
     </motion.div>
   );

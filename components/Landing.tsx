@@ -3,12 +3,19 @@ import { Cursor, useTypewriter } from "react-simple-typewriter";
 import BackgroundCircles from "./BackgroundCircles";
 import ProfilePicture from "../assets/ProfilePicture.jpg";
 import Link from "next/link";
+import { SanityImage } from "../shared/types";
+import { urlFor } from "../lib/sanity";
 
-type LandingProps = {};
+type LandingProps = {
+  name: string;
+  landingImage: SanityImage;
+  role: string;
+};
 
-export default function Landing({}: LandingProps) {
-  const [text, count] = useTypewriter({
-    words: ["Hey, Salman here", "<TechNerd />", "GeekyPerfectionist.tsx"],
+export default function Landing(props: LandingProps) {
+  const { name = "", landingImage = {} as SanityImage, role = "" } = props;
+  const [text] = useTypewriter({
+    words: [`Hey, ${name} here`, "<TechNerd />", "GeekyPerfectionist.tsx"],
     loop: true,
     delaySpeed: 2000,
   });
@@ -16,14 +23,19 @@ export default function Landing({}: LandingProps) {
   return (
     <div className="h-screen flex flex-col items-center justify-center text-center overflow-hidden space-y-8">
       <BackgroundCircles />
-      <Image
-        className="relative rounded-full h-32 w-32 object-cover"
-        src={ProfilePicture}
-        alt="My profile picture"
-      />
+      <div className="relative h-32 w-32">
+        <Image
+          className="rounded-full"
+          src={urlFor(landingImage).url()}
+          alt="My landing picture"
+          sizes="32rem"
+          priority
+          fill
+        />
+      </div>
       <div className="z-10">
         <h2 className="text-lg uppercase text-gray-500 pb-2 tracking-[0.75rem]">
-          Full Stack Engineer
+          {role}
         </h2>
         <h1 className="text-5xl lg:text-6xl font-semibold px-10">
           <span>{text}</span>

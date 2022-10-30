@@ -2,12 +2,14 @@ import Image from "next/future/image";
 import { motion } from "framer-motion";
 
 import Mockup from "../assets/t3-mockup.png";
+import { Project } from "../shared/types";
+import { urlFor } from "../lib/sanity";
 
-type Props = {};
+type ProjectsProps = {
+  projects: Project[];
+};
 
-export default function Projects({}: Props) {
-  const projects = [1, 2, 3, 4];
-
+export default function Projects({ projects }: ProjectsProps) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -23,16 +25,22 @@ export default function Projects({}: Props) {
       <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-cyan-400/80">
         {projects.map((project, index) => (
           <div
-            key={project}
+            key={project._id}
             className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 mD:p-44 h-screen"
           >
             <motion.div
+              className="relative w-1/2 h-1/2"
               initial={{ y: -300, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 1 }}
               viewport={{ once: true }}
             >
-              <Image src={Mockup} alt="Blog" />
+              <Image
+                className="p-1 object-contain"
+                alt={project.title}
+                src={urlFor(project.image).url()}
+                fill
+              />
             </motion.div>
 
             <div className="space-y-10 px-0 md:px-10 max-w-6xl">
@@ -40,11 +48,25 @@ export default function Projects({}: Props) {
                 <span className="underline decoration-cyan-400/50">
                   {index + 1} of {projects.length}:
                 </span>
-                &nbsp;T3 Blog
+                &nbsp; {project.title}
               </h4>
 
+              <div className="flex items-center justify-center space-x-2">
+                {project.technologies.map((tech) => (
+                  <div key={tech._id} className="relative w-10 h-10">
+                    <Image
+                      className="p-1 object-contain"
+                      alt={tech.title}
+                      src={urlFor(tech.image).url()}
+                      sizes="2.5rem"
+                      fill
+                    />
+                  </div>
+                ))}
+              </div>
+
               <p className="text-lg text-center md:text-left">
-                Project content
+                {project.summary}
               </p>
             </div>
           </div>

@@ -9,10 +9,18 @@ type FormData = {
   message: string;
 };
 
-export default function ContactMe() {
-  const { register, handleSubmit } = useForm<FormData>();
+type ContactProps = {
+  email: string;
+  phoneNumber: string;
+  address: string;
+};
 
-  const email = "salman.a.mec@gmail.com";
+export default function ContactMe({
+  email,
+  address,
+  phoneNumber,
+}: ContactProps) {
+  const { register, handleSubmit } = useForm<FormData>();
 
   const onSubmit: SubmitHandler<FormData> = (formData) => {
     const { name, email, subject, message } = formData;
@@ -34,7 +42,7 @@ export default function ContactMe() {
         Contact
       </h3>
 
-      <div className="flex flex-col space-y-10">
+      <div className="flex flex-col space-y-10 mt-24">
         <h4 className="text-4xl font-semibold text-center">
           Seems interesting?&nbsp;
           <span className="decoration-cyan-400/50 underline">
@@ -45,7 +53,7 @@ export default function ContactMe() {
         <div className="space-y-4">
           <div className="flex items-center space-x-5 justify-center">
             <FaPhoneAlt className="text-cyan-800 h-7 w-7 animate-pulse" />
-            <p className="text-2xl">+91 8848411093</p>
+            <p className="text-2xl">{phoneNumber}</p>
           </div>
 
           <div className="flex items-center space-x-5 justify-center">
@@ -55,7 +63,7 @@ export default function ContactMe() {
 
           <div className="flex items-center space-x-5 justify-center">
             <FaMapMarkedAlt className="text-cyan-800 h-7 w-7 animate-pulse" />
-            <p className="text-2xl">Kochi, Kerala</p>
+            <p className="text-2xl">{address}</p>
           </div>
         </div>
 
@@ -63,7 +71,7 @@ export default function ContactMe() {
           onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col space-y-2 w-fit mx-auto"
         >
-          <div className="flex space-x-2">
+          <div className="flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-2">
             <input
               {...register("name")}
               placeholder="Name"

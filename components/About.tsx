@@ -2,10 +2,18 @@ import { motion } from "framer-motion";
 import Image from "next/future/image";
 
 import AboutImage from "../assets/About.jpg";
+import { urlFor } from "../lib/sanity";
+import { SanityImage } from "../shared/types";
 
-type Props = {};
+type AboutProps = {
+  profilePic: SanityImage;
+  backgroundInformation: string;
+};
 
-export default function About({}: Props) {
+export default function About({
+  profilePic,
+  backgroundInformation,
+}: AboutProps) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -18,15 +26,21 @@ export default function About({}: Props) {
       </h3>
 
       <motion.div
+        className="relative -mb-29 md:mb-0 flex-shrink-0 w-56 h-56 md:w-64 md:h-96 xl:w-[24rem] xl:h-[30rem]"
         initial={{ x: -200, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1.2 }}
       >
         <Image
-          className="-mb-29 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover md:rounded-lg md:w-64 md:h-96 xl:w-[24rem] xl:h-[30rem]"
-          src={AboutImage}
-          alt="Me in another pic"
+          className="rounded-full md:rounded-lg object-cover"
+          src={urlFor(profilePic).url()}
+          alt="My profile picture"
+          sizes="(max-width: 768px) 14rem,
+              (max-width: 1200px) 16rem,
+              24rem"
+          priority
+          fill
         />
       </motion.div>
 
@@ -35,7 +49,7 @@ export default function About({}: Props) {
           A little{" "}
           <span className="underline decoration-cyan-400/50">about</span> me
         </h4>
-        <p className="text-base">To be updated....</p>
+        <p className="text-base">{backgroundInformation}</p>
       </div>
     </motion.div>
   );

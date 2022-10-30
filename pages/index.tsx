@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import { HiArrowCircleUp } from "react-icons/hi";
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 
 import Header from "../components/Header";
 import Landing from "../components/Landing";
@@ -10,8 +10,48 @@ import Experience from "../components/Experience";
 import Skills from "../components/Skills";
 import Projects from "../components/Projects";
 import ContactMe from "../components/ContactMe";
+import {
+  fetchExperiences,
+  fetchPageInfo,
+  fetchProjects,
+  fetchSocials,
+  fetchTechnologies,
+} from "../services";
+import type {
+  PageInfo,
+  Social,
+  Technology,
+  Project,
+  Experience as ExperienceType,
+  SanityImage,
+} from "../shared/types";
 
-const Home: NextPage = () => {
+type Props = {
+  pageInfo: PageInfo;
+  socials: Social[];
+  technologies: Technology[];
+  projects: Project[];
+  experiences: ExperienceType[];
+};
+
+const Home: NextPage<Props> = ({
+  socials,
+  pageInfo,
+  experiences,
+  technologies,
+  projects,
+}: Props) => {
+  const {
+    name = "",
+    email = "",
+    phoneNumber = "",
+    address = "",
+    landingImage = {} as SanityImage,
+    role = "",
+    profilePic = {} as SanityImage,
+    backgroundInformation = "",
+  } = pageInfo;
+
   return (
     <div className="bg-background-color text-white h-screen snap-y snap-mandatory overflow-scroll z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-cyan-400/80">
       <Head>
@@ -23,26 +63,33 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header />
+      <Header socials={socials} />
 
       <main>
         <section id="landing" className="snap-center">
-          <Landing />
+          <Landing landingImage={landingImage} name={name} role={role} />
         </section>
         <section id="about" className="snap-center">
-          <About />
+          <About
+            profilePic={profilePic}
+            backgroundInformation={backgroundInformation}
+          />
         </section>
         <section id="experience" className="snap-center">
-          <Experience />
+          <Experience experiences={experiences} />
         </section>
         <section id="skills" className="snap-start">
-          <Skills />
+          <Skills technologies={technologies} />
         </section>
         <section id="projects" className="snap-start">
-          <Projects />
+          <Projects projects={projects} />
         </section>
         <section id="contact" className="snap-start">
-          <ContactMe />
+          <ContactMe
+            email={email}
+            address={address}
+            phoneNumber={phoneNumber}
+          />
         </section>
       </main>
 
@@ -56,3 +103,22 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const pageInfo = await fetchPageInfo();
+  const socials = await fetchSocials();
+  const technologies = await fetchTechnologies();
+  const projects = await fetchProjects();
+  const experiences = await fetchExperiences();
+
+  return {
+    props: {
+      pageInfo,
+      socials,
+      technologies,
+      projects,
+      experiences,
+    },
+    revalidate: 10,
+  };
+};

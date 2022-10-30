@@ -5,13 +5,34 @@ import {
   FaTwitter,
   FaStackOverflow,
   FaEnvelope,
+  FaShareAlt,
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { Social } from "../shared/types";
 
-type HeaderProps = {};
+type HeaderProps = {
+  socials: Social[];
+};
 
-export default function Header({}: HeaderProps) {
+const getSocialIcon = (site: string) => {
+  switch (site) {
+    case "GitHub":
+      return <FaGithub size={25} />;
+    case "LinkedIn":
+      return <FaLinkedinIn size={25} />;
+    case "Instagram":
+      return <FaInstagram size={25} />;
+    case "Twitter":
+      return <FaTwitter size={25} />;
+    case "StackOverflow":
+      return <FaStackOverflow size={25} />;
+    default:
+      return <FaShareAlt size={25} />;
+  }
+};
+
+export default function Header({ socials }: HeaderProps) {
   return (
     <header className="sticky top-4 flex justify-between max-w-7xl mx-auto z-20 px-8">
       <motion.div
@@ -20,36 +41,11 @@ export default function Header({}: HeaderProps) {
         animate={{ x: 0, opacity: 1, scale: 1 }}
         transition={{ duration: 1 }}
       >
-        <a
-          href="https://github.com/salman-ar-sar"
-          className="hover:text-cyan-400"
-        >
-          <FaGithub size={25} />
-        </a>
-        <a
-          href="https://www.linkedin.com/in/salman-ar/"
-          className="hover:text-cyan-400"
-        >
-          <FaLinkedinIn size={25} />
-        </a>
-        <a
-          href="https://www.instagram.com/salman_ar_sar/"
-          className="hover:text-cyan-400"
-        >
-          <FaInstagram size={25} />
-        </a>
-        <a
-          href="https://twitter.com/Salman_A09"
-          className="hover:text-cyan-400"
-        >
-          <FaTwitter size={25} />
-        </a>
-        <a
-          href="https://stackoverflow.com/users/16142197/salman-ar"
-          className="hover:text-cyan-400"
-        >
-          <FaStackOverflow size={25} />
-        </a>
+        {socials.map(({ _id, url, title }) => (
+          <a className="hover:text-cyan-400" href={url} key={_id}>
+            {getSocialIcon(title)}
+          </a>
+        ))}
       </motion.div>
       <Link href="#contact">
         <motion.div
