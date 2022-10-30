@@ -7,7 +7,12 @@ import type {
 } from "../shared/types";
 
 export const fetchPageInfo = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/pageInfo`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/pageInfo`, {
+    headers: {
+      Accept: "application/json, text/plain, */*",
+      "User-Agent": "*",
+    },
+  });
 
   const data = await res.json();
 
@@ -17,7 +22,12 @@ export const fetchPageInfo = async () => {
 };
 
 export const fetchSocials = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/socials`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/socials`, {
+    headers: {
+      Accept: "application/json, text/plain, */*",
+      "User-Agent": "*",
+    },
+  });
 
   const data = await res.json();
 
@@ -28,7 +38,13 @@ export const fetchSocials = async () => {
 
 export const fetchTechnologies = async () => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/technologies`
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/technologies`,
+    {
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "User-Agent": "*",
+      },
+    }
   );
 
   const data = await res.json();
@@ -39,7 +55,12 @@ export const fetchTechnologies = async () => {
 };
 
 export const fetchProjects = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/projects`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/projects`, {
+    headers: {
+      Accept: "application/json, text/plain, */*",
+      "User-Agent": "*",
+    },
+  });
 
   const data = await res.json();
 
@@ -49,7 +70,15 @@ export const fetchProjects = async () => {
 };
 
 export const fetchExperiences = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/experience`);
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/experience`,
+    {
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "User-Agent": "*",
+      },
+    }
+  );
 
   const data = await res.json();
 
