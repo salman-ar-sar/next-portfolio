@@ -15,7 +15,11 @@ type LandingProps = {
 export default function Landing(props: LandingProps) {
   const { name = "", landingImage = {} as SanityImage, role = "" } = props;
   const [text] = useTypewriter({
-    words: [`Hey, ${name} here`, "<TechNerd />", "GeekyPerfectionist.tsx"],
+    words: [
+      `Hey, ${name.split(" ")[0]} here`,
+      "<TechNerd />",
+      "GeekyPerfectionist.tsx",
+    ],
     loop: true,
     delaySpeed: 2000,
   });
