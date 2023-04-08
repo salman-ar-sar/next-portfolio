@@ -45,9 +45,17 @@ export default function Projects({ projects }: ProjectsProps) {
             <div className="space-y-10 px-0 md:px-10 max-w-6xl">
               <h4 className="text-4xl font-semibold text-center">
                 <span className="underline decoration-cyan-400/50">
-                  {index + 1} of {projects.length}:
+                  {index + 1} of {projects.length}
                 </span>
-                &nbsp; {project.title}
+                :&nbsp;
+                <a
+                  href={project.deployedLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-cyan-400 cursor-pointer"
+                >
+                  {project.title}
+                </a>
               </h4>
 
               <div className="flex items-center justify-center space-x-2">
