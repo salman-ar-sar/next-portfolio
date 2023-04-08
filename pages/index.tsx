@@ -53,7 +53,7 @@ const Home: NextPage<Props> = ({
   } = pageInfo;
 
   return (
-    <div className="bg-background-color text-white h-screen snap-y snap-mandatory overflow-scroll z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-cyan-400/80">
+    <div className="bg-background-color text-white h-screen snap-y snap-mandatory overflow-scroll z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-cyan-400/80 scroll-smooth">
       <Head>
         <title>Salman&apos;s Portfolio</title>
         <meta
