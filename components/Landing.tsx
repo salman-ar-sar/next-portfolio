@@ -56,8 +56,8 @@ export default function Landing(props: LandingProps) {
           <Link href="#skills">
             <button className="landing-button">Skills</button>
           </Link>
-          <Link href="#works">
-            <button className="landing-button">Works</button>
+          <Link href="#projects">
+            <button className="landing-button">Projects</button>
           </Link>
         </div>
       </div>
