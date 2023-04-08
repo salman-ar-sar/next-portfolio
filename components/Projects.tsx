@@ -1,7 +1,6 @@
 import Image from "next/future/image";
 import { motion } from "framer-motion";
 
-import Mockup from "../assets/t3-mockup.png";
 import { Project } from "../shared/types";
 import { urlFor } from "../lib/sanity";
 
