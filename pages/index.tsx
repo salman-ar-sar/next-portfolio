@@ -1,6 +1,4 @@
 import Head from "next/head";
-import Link from "next/link";
-import { HiArrowCircleUp } from "react-icons/hi";
 import type { GetStaticProps, NextPage } from "next";
 
 import Header from "../components/Header";
@@ -10,6 +8,7 @@ import Experience from "../components/Experience";
 import Skills from "../components/Skills";
 import Projects from "../components/Projects";
 import ContactMe from "../components/ContactMe";
+import Footer from "../components/Footer";
 import {
   fetchExperiences,
   fetchPageInfo,
@@ -53,7 +52,10 @@ const Home: NextPage<Props> = ({
   } = pageInfo;
 
   return (
-    <div className="bg-background-color text-white h-screen snap-y snap-mandatory overflow-scroll z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-cyan-400/80 scroll-smooth">
+    <div
+      id="main"
+      className="bg-background-color text-white h-screen snap-y snap-mandatory overflow-scroll z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-cyan-400/80 scroll-smooth"
+    >
       <Head>
         <title>Salman&apos;s Portfolio</title>
         <meta
@@ -93,11 +95,7 @@ const Home: NextPage<Props> = ({
         </section>
       </main>
 
-      <footer className="sticky bottom-5 w-full flex justify-center">
-        <Link href="#landing">
-          <HiArrowCircleUp className="h-10 w-10 rounded-full text-gray-400 hover:text-cyan-400 cursor-pointer" />
-        </Link>
-      </footer>
+      <Footer />
     </div>
   );
 };
