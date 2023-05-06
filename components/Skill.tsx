@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -9,7 +11,7 @@ type SkillProps = {
   moveLeft?: boolean;
 };
 
-export default function Skill({ tech, moveLeft }: SkillProps) {
+export default function Skill({ tech, moveLeft = false }: SkillProps) {
   const { image, title = "" } = tech;
 
   return (
@@ -41,7 +43,3 @@ export default function Skill({ tech, moveLeft }: SkillProps) {
     </div>
   );
 }
-
-Skill.defaultProps = {
-  moveLeft: false,
-};

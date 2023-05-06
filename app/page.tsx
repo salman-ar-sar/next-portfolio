@@ -1,6 +1,3 @@
-import type { GetStaticProps, NextPage } from "next";
-import Head from "next/head";
-
 import About from "../components/About";
 import ContactMe from "../components/ContactMe";
 import Experience from "../components/Experience";
@@ -16,30 +13,15 @@ import {
   fetchSocials,
   fetchTechnologies,
 } from "../services";
-import type {
-  Experience as ExperienceType,
-  PageInfo,
-  Project,
-  SanityImage,
-  Social,
-  Technology,
-} from "../shared/types";
+import type { SanityImage } from "../shared/types";
 
-type Props = {
-  pageInfo: PageInfo;
-  socials: Social[];
-  technologies: Technology[];
-  projects: Project[];
-  experiences: ExperienceType[];
-};
+export default async function Home() {
+  const pageInfo = await fetchPageInfo();
+  const socials = await fetchSocials();
+  const technologies = await fetchTechnologies();
+  const projects = await fetchProjects();
+  const experiences = await fetchExperiences();
 
-const Home: NextPage<Props> = ({
-  socials,
-  pageInfo,
-  experiences,
-  technologies,
-  projects,
-}: Props) => {
   const {
     name = "",
     email = "",
@@ -56,15 +38,6 @@ const Home: NextPage<Props> = ({
       id="main"
       className="bg-background-color text-white h-screen snap-y snap-mandatory overflow-scroll z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-cyan-400/80 scroll-smooth"
     >
-      <Head>
-        <title>Salman&apos;s Portfolio</title>
-        <meta
-          name="description"
-          content="Portfolio app for Salman Ambalam Cheri - A full stack engineer"
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <Header socials={socials} />
 
       <main>
@@ -98,25 +71,4 @@ const Home: NextPage<Props> = ({
       <Footer />
     </div>
   );
-};
-
-export default Home;
-
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  const pageInfo = await fetchPageInfo();
-  const socials = await fetchSocials();
-  const technologies = await fetchTechnologies();
-  const projects = await fetchProjects();
-  const experiences = await fetchExperiences();
-
-  return {
-    props: {
-      pageInfo,
-      socials,
-      technologies,
-      projects,
-      experiences,
-    },
-    revalidate: 10,
-  };
-};
+}

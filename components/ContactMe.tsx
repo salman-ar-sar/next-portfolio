@@ -1,6 +1,8 @@
+"use client";
+
 import { motion } from "framer-motion";
-import { SubmitHandler,useForm } from "react-hook-form";
-import { FaEnvelopeOpenText,FaMapMarkedAlt, FaPhoneAlt } from "react-icons/fa";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { FaEnvelopeOpenText, FaMapMarkedAlt, FaPhoneAlt } from "react-icons/fa";
 
 type FormData = {
   name: string;

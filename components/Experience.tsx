@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 
 import type { Experience as ExperienceType } from "../shared/types";

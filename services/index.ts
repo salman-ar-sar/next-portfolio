@@ -6,13 +6,17 @@ import type {
   Technology,
 } from "../shared/types";
 
-export const fetchPageInfo = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/pageInfo`, {
+const fetchWrapper = (endpoint: string) =>
+  fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/${endpoint}`, {
     headers: {
       Accept: "application/json, text/plain, */*",
       "User-Agent": "*",
     },
+    next: { revalidate: 60 },
   });
+
+export const fetchPageInfo = async () => {
+  const res = await fetchWrapper("pageInfo");
 
   const data = await res.json();
 
@@ -22,12 +26,7 @@ export const fetchPageInfo = async () => {
 };
 
 export const fetchSocials = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/socials`, {
-    headers: {
-      Accept: "application/json, text/plain, */*",
-      "User-Agent": "*",
-    },
-  });
+  const res = await fetchWrapper("socials");
 
   const data = await res.json();
 
@@ -37,15 +36,7 @@ export const fetchSocials = async () => {
 };
 
 export const fetchTechnologies = async () => {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/technologies`,
-    {
-      headers: {
-        Accept: "application/json, text/plain, */*",
-        "User-Agent": "*",
-      },
-    }
-  );
+  const res = await fetchWrapper("technologies");
 
   const data = await res.json();
 
@@ -55,12 +46,7 @@ export const fetchTechnologies = async () => {
 };
 
 export const fetchProjects = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/projects`, {
-    headers: {
-      Accept: "application/json, text/plain, */*",
-      "User-Agent": "*",
-    },
-  });
+  const res = await fetchWrapper("projects");
 
   const data = await res.json();
 
@@ -70,15 +56,7 @@ export const fetchProjects = async () => {
 };
 
 export const fetchExperiences = async () => {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/experience`,
-    {
-      headers: {
-        Accept: "application/json, text/plain, */*",
-        "User-Agent": "*",
-      },
-    }
-  );
+  const res = await fetchWrapper("experience");
 
   const data = await res.json();
 
