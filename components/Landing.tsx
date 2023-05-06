@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 
 import { urlFor } from "../lib/sanity";
@@ -49,18 +48,18 @@ export default function Landing(props: LandingProps) {
         </h1>
 
         <div className="mt-5">
-          <Link href="#about">
+          <a href="#about">
             <button className="landing-button">About</button>
-          </Link>
-          <Link href="#experience">
+          </a>
+          <a href="#experience">
             <button className="landing-button">Experience</button>
-          </Link>
-          <Link href="#skills">
+          </a>
+          <a href="#skills">
             <button className="landing-button">Skills</button>
-          </Link>
-          <Link href="#projects">
+          </a>
+          <a href="#projects">
             <button className="landing-button">Projects</button>
-          </Link>
+          </a>
         </div>
       </div>
     </div>

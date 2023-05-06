@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
 import {
   FaEnvelope,
   FaGithub,
@@ -50,7 +49,7 @@ export default function Header({ socials }: HeaderProps) {
           </a>
         ))}
       </motion.div>
-      <Link href="#contact">
+      <a href="#contact">
         <motion.div
           className="flex flex-row items-center gap-4 cursor-pointer"
           initial={{ x: 500, opacity: 0, scale: 0.5 }}
@@ -62,7 +61,7 @@ export default function Header({ socials }: HeaderProps) {
             To Get In Touch
           </p>
         </motion.div>
-      </Link>
+      </a>
     </header>
   );
 }

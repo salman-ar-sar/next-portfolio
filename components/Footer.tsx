@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { HiArrowCircleUp } from "react-icons/hi";
 
@@ -29,9 +28,9 @@ export default function Footer() {
         isScrolled ? "" : "invisible"
       }`}
     >
-      <Link href="#landing">
+      <a href="#landing">
         <HiArrowCircleUp className="h-10 w-10 rounded-full text-gray-400 hover:text-cyan-400 cursor-pointer" />
-      </Link>
+      </a>
     </footer>
   );
 }
