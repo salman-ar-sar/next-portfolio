@@ -44,20 +44,20 @@ export default function Header({ socials }: HeaderProps) {
         transition={{ duration: 1 }}
       >
         {socials.map(({ _id, url, title }) => (
-          <a className="hover:text-cyan-400" href={url} key={_id}>
+          <a className="text-white hover:text-cyan-400" href={url} key={_id}>
             {getSocialIcon(title)}
           </a>
         ))}
       </motion.div>
       <a href="#contact">
         <motion.div
-          className="flex flex-row items-center gap-4 cursor-pointer"
+          className="flex flex-row items-center gap-4 text-white hover:text-cyan-400"
           initial={{ x: 500, opacity: 0, scale: 0.5 }}
           animate={{ x: 0, opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
         >
-          <FaEnvelope size={25} className="hover:text-cyan-400" />
-          <p className="uppercase hidden md:inline-flex text-sm text-gray-400">
+          <FaEnvelope size={25} />
+          <p className="uppercase hidden md:inline-flex text-sm">
             To Get In Touch
           </p>
         </motion.div>
