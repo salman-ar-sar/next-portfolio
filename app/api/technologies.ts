@@ -12,10 +12,7 @@ const query = groq`
   *[_type == 'skill']
 `;
 
-export default async function handler(
-  _: NextApiRequest,
-  res: NextApiResponse<Data>
-) {
+export async function GET(_: NextApiRequest, res: NextApiResponse<Data>) {
   const technologies = await sanityClient.fetch<Technology[]>(query);
 
   res.status(200).json({ technologies });

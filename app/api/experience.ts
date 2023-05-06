@@ -15,7 +15,7 @@ const query = groq`
   }
 `;
 
-export default async function handler(
+export async function GET(
   _: NextApiRequest,
   res: NextApiResponse<Data>
 ) {

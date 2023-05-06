@@ -15,10 +15,7 @@ const query = groq`
   }
 `;
 
-export default async function handler(
-  _: NextApiRequest,
-  res: NextApiResponse<Data>
-) {
+export async function GET(_: NextApiRequest, res: NextApiResponse<Data>) {
   const projects = await sanityClient.fetch<Project[]>(query);
 
   res.status(200).json({ projects });
