@@ -1,6 +1,6 @@
-import Image from "next/future/image";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import type { StaticImageData } from "next/future/image";
+import type { StaticImageData } from "next/image";
 import { Experience, SanityImage } from "../shared/types";
 import { urlFor } from "../lib/sanity";
 

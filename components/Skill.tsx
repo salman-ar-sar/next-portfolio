@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import Image from "next/future/image";
+import Image from "next/image";
 import { urlFor } from "../lib/sanity";
 import type { Technology } from "../shared/types";
 
