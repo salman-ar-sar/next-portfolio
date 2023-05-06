@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-import AboutImage from "../assets/About.jpg";
 import { urlFor } from "../lib/sanity";
 import { SanityImage } from "../shared/types";
 

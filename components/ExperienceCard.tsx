@@ -1,8 +1,8 @@
-import Image from "next/image";
 import { motion } from "framer-motion";
-import type { StaticImageData } from "next/image";
-import { Experience, SanityImage } from "../shared/types";
+import Image from "next/image";
+
 import { urlFor } from "../lib/sanity";
+import type { Experience, SanityImage } from "../shared/types";
 
 type ExperienceCardProps = {
   experience: Experience;

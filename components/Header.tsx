@@ -1,14 +1,15 @@
-import {
-  FaInstagram,
-  FaGithub,
-  FaLinkedinIn,
-  FaTwitter,
-  FaStackOverflow,
-  FaEnvelope,
-  FaShareAlt,
-} from "react-icons/fa";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import {
+  FaEnvelope,
+  FaGithub,
+  FaInstagram,
+  FaLinkedinIn,
+  FaShareAlt,
+  FaStackOverflow,
+  FaTwitter,
+} from "react-icons/fa";
+
 import { Social } from "../shared/types";
 
 type HeaderProps = {

@@ -1,14 +1,14 @@
-import Head from "next/head";
 import type { GetStaticProps, NextPage } from "next";
+import Head from "next/head";
 
+import About from "../components/About";
+import ContactMe from "../components/ContactMe";
+import Experience from "../components/Experience";
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Landing from "../components/Landing";
-import About from "../components/About";
-import Experience from "../components/Experience";
-import Skills from "../components/Skills";
 import Projects from "../components/Projects";
-import ContactMe from "../components/ContactMe";
-import Footer from "../components/Footer";
+import Skills from "../components/Skills";
 import {
   fetchExperiences,
   fetchPageInfo,
@@ -17,12 +17,12 @@ import {
   fetchTechnologies,
 } from "../services";
 import type {
+  Experience as ExperienceType,
   PageInfo,
+  Project,
+  SanityImage,
   Social,
   Technology,
-  Project,
-  Experience as ExperienceType,
-  SanityImage,
 } from "../shared/types";
 
 type Props = {

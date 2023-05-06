@@ -1,10 +1,10 @@
 import Image from "next/image";
-import { Cursor, useTypewriter } from "react-simple-typewriter";
-import BackgroundCircles from "./BackgroundCircles";
-import ProfilePicture from "../assets/ProfilePicture.jpg";
 import Link from "next/link";
-import { SanityImage } from "../shared/types";
+import { Cursor, useTypewriter } from "react-simple-typewriter";
+
 import { urlFor } from "../lib/sanity";
+import type { SanityImage } from "../shared/types";
+import BackgroundCircles from "./BackgroundCircles";
 
 type LandingProps = {
   name: string;

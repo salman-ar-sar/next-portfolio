@@ -1,8 +1,8 @@
-import Image from "next/image";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
-import { Project } from "../shared/types";
 import { urlFor } from "../lib/sanity";
+import type { Project } from "../shared/types";
 
 type ProjectsProps = {
   projects: Project[];

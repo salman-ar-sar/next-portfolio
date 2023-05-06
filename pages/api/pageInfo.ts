@@ -1,5 +1,5 @@
-import { groq } from "next-sanity";
 import type { NextApiRequest, NextApiResponse } from "next";
+import { groq } from "next-sanity";
 
 import { sanityClient } from "../../lib/sanity";
 import { PageInfo } from "../../shared/types";

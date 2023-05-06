@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useEffect,useState } from "react";
 import { HiArrowCircleUp } from "react-icons/hi";
 
 export default function Footer() {

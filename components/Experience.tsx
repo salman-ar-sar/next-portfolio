@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import ExperienceCard from "./ExperienceCard";
 
-import { Experience as ExperienceType } from "../shared/types";
+import type { Experience as ExperienceType } from "../shared/types";
+import ExperienceCard from "./ExperienceCard";
 
 type ExperienceProps = {
   experiences: ExperienceType[];

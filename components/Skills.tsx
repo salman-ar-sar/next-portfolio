@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Technology } from "../shared/types";
+
+import type { Technology } from "../shared/types";
 import Skill from "./Skill";
 
 type SkillsProps = {
