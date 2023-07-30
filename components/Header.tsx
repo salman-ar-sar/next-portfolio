@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import {
   FaEnvelope,
+  FaFilePdf,
   FaGithub,
   FaInstagram,
   FaLinkedinIn,
@@ -38,7 +39,7 @@ export default function Header({ socials }: HeaderProps) {
   return (
     <header className="sticky top-4 flex justify-between max-w-7xl mx-auto z-20 px-8">
       <motion.div
-        className="flex flex-row items-center gap-8"
+        className="flex flex-row items-center gap-6 md:gap-8"
         initial={{ x: -500, opacity: 0, scale: 0.5 }}
         animate={{ x: 0, opacity: 1, scale: 1 }}
         transition={{ duration: 1 }}
@@ -49,19 +50,31 @@ export default function Header({ socials }: HeaderProps) {
           </a>
         ))}
       </motion.div>
-      <a href="#contact">
-        <motion.div
-          className="flex flex-row items-center gap-4 text-white hover:text-cyan-400"
-          initial={{ x: 500, opacity: 0, scale: 0.5 }}
-          animate={{ x: 0, opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
+      <motion.div
+        className="flex flex-row gap-6"
+        initial={{ x: 500, opacity: 0, scale: 0.5 }}
+        animate={{ x: 0, opacity: 1, scale: 1 }}
+        transition={{ duration: 1 }}
+      >
+        <a
+          className="flex flex-row gap-2 items-center text-white hover:text-cyan-400"
+          href="/SalmanAmbalamCheri_Resume.pdf"
+          download
+          target="_blank"
+        >
+          <FaFilePdf size={25} />
+          <p className="uppercase hidden md:inline-flex text-sm">Resume</p>
+        </a>
+        <a
+          className="flex flex-row gap-2 items-center text-white hover:text-cyan-400"
+          href="#contact"
         >
           <FaEnvelope size={25} />
           <p className="uppercase hidden md:inline-flex text-sm">
             To Get In Touch
           </p>
-        </motion.div>
-      </a>
+        </a>
+      </motion.div>
     </header>
   );
 }
