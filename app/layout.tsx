@@ -1,5 +1,7 @@
 import "../styles/globals.css";
 
+import { Analytics } from "@vercel/analytics/react";
+
 export const metadata = {
   title: "Salman's Portfolio",
   description: "Portfolio app for Salman Ambalam Cheri - A full stack engineer",
@@ -15,6 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>{children}</body>
+      <Analytics />
     </html>
   );
 }
